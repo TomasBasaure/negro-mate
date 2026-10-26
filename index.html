@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Negro Mate – Indumentaria urbana</title>
+<meta name="description" content="Demo de tienda de ropa. Catálogo, filtros por talle, carrito y checkout.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="tee" viewBox="0 0 100 100"><path fill="currentColor" d="M32 14 18 22 8 40l14 6 6-8v50h44V38l6 8 14-6-10-18-14-8Q50 28 32 14Z"/></symbol>
+  <symbol id="hoodie" viewBox="0 0 100 100"><path fill="currentColor" d="M30 14Q50 4 70 14l20 16-6 28-12-4v38H28V54l-12 4-6-28Z"/><path d="M38 14Q50 36 62 14M36 66h28v14H36z" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/></symbol>
+  <symbol id="pants" viewBox="0 0 100 100"><path fill="currentColor" d="M30 8h40l5 84H54L50 38l-4 54H25Z"/></symbol>
+  <symbol id="cap" viewBox="0 0 100 100"><path fill="currentColor" d="M16 66Q16 30 52 30q32 0 32 36Zm68-4q14 2 14 10H80Z"/></symbol>
+</svg>
+
+<div class="ship">Envío gratis desde $60.000</div>
+
+<header class="top">
+  <a class="brand" href="#inicio">Negro Mate</a>
+  <nav>
+    <a href="#productos">Productos</a>
+    <a href="#como-comprar">Cómo comprar</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <button class="cart-btn" id="open-cart">Carrito <b id="count">0</b></button>
+</header>
+
+<section class="hero" id="inicio">
+  <h1>Negro<br>Mate</h1>
+  <div class="hero-side">
+    <p>Ropa urbana hecha en Santa Fe. Algodón grueso, cortes simples y un solo color que no se discute.</p>
+    <a class="btn" href="#productos">Ver prendas</a>
+  </div>
+  <div class="tag hero-tag" aria-hidden="true">
+    <b>Negro Mate</b>
+    <span>Lavar del revés.<br>Secar a la sombra.<br>No planchar el estampado.</span>
+  </div>
+</section>
+
+<main id="productos">
+  <div class="filters">
+    <div class="row" id="cats"></div>
+    <div class="row" id="sizes"></div>
+    <button class="link" id="clear" hidden>Limpiar filtros</button>
+  </div>
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="none" hidden>No hay prendas con esa combinación. Probá con otro talle o categoría.</p>
+</main>
+
+<section class="info" id="como-comprar">
+  <h2>Cómo comprar</h2>
+  <ol>
+    <li><b>Elegí la prenda y el talle.</b> Si dudás con las medidas, escribinos antes.</li>
+    <li><b>Armá el carrito</b> y confirmá el pedido con tus datos.</li>
+    <li><b>Te confirmamos por WhatsApp</b> el stock y el costo de envío a tu zona.</li>
+    <li><b>Pagás</b> por transferencia, Mercado Pago o efectivo en entregas en mano.</li>
+    <li><b>Recibís</b> en 24-48 hs en Santa Fe capital, 3-7 días en CABA y GBA, 5-10 días al interior.</li>
+  </ol>
+  <p class="note">Cambios solo por defecto de fábrica, dentro de las 48 hs de recibido el pedido. No hacemos devoluciones.</p>
+</section>
+
+<section class="info" id="contacto">
+  <h2>Contacto</h2>
+  <div class="contact">
+    <form id="cform">
+      <label>Nombre<input name="n" required autocomplete="name"></label>
+      <label>Email<input name="e" type="email" required autocomplete="email"></label>
+      <label>Mensaje<textarea name="m" rows="4" required></textarea></label>
+      <button class="btn" type="submit">Enviar por WhatsApp</button>
+      <p class="status" id="cstatus" role="status"></p>
+    </form>
+    <div class="contact-data">
+      <p><b>Lunes a viernes</b> 9 a 19 hs<br><b>Sábados</b> 9 a 13 hs</p>
+      <p>Santa Fe capital, Argentina</p>
+      <p>negromateindumentaria@gmail.com<br>@negromate.indumentaria</p>
+    </div>
+  </div>
+</section>
+
+<footer>Negro Mate es un proyecto demo de portafolio. Los pedidos y pagos no son reales. <a href="admin.html">Panel admin de prueba</a>.</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Carrito" aria-hidden="true">
+  <div class="drawer-head"><h2>Tu carrito</h2><button class="x" id="close-cart" aria-label="Cerrar carrito">&times;</button></div>
+  <div class="drawer-body" id="items"></div>
+  <div class="drawer-foot" id="foot" hidden>
+    <p class="free" id="free"></p>
+    <p class="total"><span>Total</span><b id="total"></b></p>
+    <button class="btn full" id="checkout">Finalizar compra</button>
+  </div>
+</aside>
+
+<dialog id="dlg">
+  <form method="dialog" class="dlg-x"><button class="x" aria-label="Cerrar">&times;</button></form>
+  <div id="dlg-body"></div>
+</dialog>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

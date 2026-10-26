@@ -1,0 +1,45 @@
+:root{--bg:#d9dbdc;--ink:#0d0d0e;--paper:#f2f1ed;--mut:#5d6063;--line:#b9bcbe;--red:#b3261e;--ok:#2d6a3e;--f:'Instrument Sans',system-ui,sans-serif;--d:'Big Shoulders Display','Arial Narrow',Impact,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 .95rem/1.5 var(--f)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+[hidden]{display:none!important}
+.btn{background:var(--ink);color:var(--paper);border:0;padding:.55rem 1.1rem;font-weight:600;cursor:pointer}
+.btn:hover{background:#2b2d2f}.btn.ghost{background:none;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.sm{padding:.2rem .6rem;font-size:.85rem}.btn.del{background:none;color:var(--red);border:1.5px solid var(--red)}
+input,select,textarea{background:var(--paper);border:1.5px solid var(--line);padding:.5rem .6rem;width:100%;border-radius:0}
+input:focus,select:focus,textarea:focus{border-color:var(--ink)}
+label{display:grid;gap:.25rem;font-weight:500;font-size:.9rem}
+h1,h2{font-family:var(--d);text-transform:uppercase;line-height:1}
+#login{min-height:100vh;display:grid;place-items:center;padding:1rem}
+#login form{background:var(--paper);padding:2rem;width:min(380px,100%);display:grid;gap:1rem}
+#login h1{font-size:2.6rem}.hint{color:var(--mut);font-size:.85rem}.err{color:var(--red);font-weight:500}
+.bar{display:flex;align-items:center;gap:1.5rem;padding:.8rem clamp(1rem,3vw,2.5rem);border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:2;flex-wrap:wrap}
+.bar b{font:900 1.4rem/1 var(--d);text-transform:uppercase}
+.tabs{display:flex;gap:.3rem}.tabs button{background:none;border:0;padding:.35rem .8rem;cursor:pointer;font-weight:500}
+.tabs button.on{background:var(--ink);color:var(--paper)}
+.bar .out{margin-left:auto;display:flex;gap:1rem;align-items:center}.bar a{color:inherit}
+main{padding:1.5rem clamp(1rem,3vw,2.5rem) 3rem;display:grid;gap:1.2rem}
+.head{display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap}.head h2{font-size:2.4rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem}
+.stat{background:var(--paper);padding:.8rem 1rem}.stat b{display:block;font:900 1.9rem/1.1 var(--d)}.stat span{color:var(--mut);font-size:.85rem}
+.tools{display:flex;gap:.6rem;flex-wrap:wrap}.tools input{max-width:260px}.tools select{width:auto}
+.tw{overflow-x:auto;background:var(--paper)}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th,td{padding:.6rem .8rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font-weight:600;color:var(--mut);font-size:.85rem}
+td.r,th.r{text-align:right}td .btn+.btn{margin-left:.3rem}
+.bd{display:inline-block;padding:.1rem .55rem;font-size:.8rem;font-weight:600;border:1.5px solid currentColor}
+.s-pending{color:#8a6100}.s-confirmed,.s-processing{color:#14507a}.s-shipped{color:#4b3a8f}.s-delivered,.s-paid,.s-ok{color:var(--ok)}.s-cancelled,.s-failed,.s-out{color:var(--red)}.s-refunded{color:var(--mut)}.s-low{color:#a84e00}
+.dot{display:inline-block;width:1.4rem;height:1.4rem;border:1px solid var(--line);vertical-align:middle}
+td input[type=number]{width:4.2rem;padding:.25rem .4rem}
+.sz-cell{display:flex;gap:.6rem;flex-wrap:wrap}.sz-cell label{font-size:.78rem;font-weight:600;color:var(--mut);gap:.1rem}
+dialog{border:0;background:var(--paper);padding:1.6rem;width:min(560px,calc(100% - 2rem));max-height:92vh;overflow:auto;margin:auto}
+dialog::backdrop{background:rgba(13,13,14,.55)}
+dialog h2{font-size:2rem;margin-bottom:1rem}
+.fg{display:grid;gap:.8rem}.two{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.lines{border-top:1px solid var(--line);margin:.2rem 0 .4rem}.lines div{display:flex;justify-content:space-between;gap:1rem;padding:.35rem 0;border-bottom:1px solid var(--line)}
+.acts{display:flex;gap:.6rem;justify-content:flex-end;margin-top:.5rem}
+.toast{position:fixed;left:50%;bottom:1.2rem;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:.6rem 1.2rem;z-index:20}
+.empty{padding:1.5rem;color:var(--mut)}
+@media(max-width:600px){.two{grid-template-columns:1fr}}

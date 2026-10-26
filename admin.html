@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Panel admin – Negro Mate</title>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<section id="login">
+  <form id="lf">
+    <h1>Panel admin</h1>
+    <p class="hint">Demo de portafolio. Usuario <b>admin</b>, contraseña <b>demo1234</b>.</p>
+    <label>Usuario<input name="u" autocomplete="username" required></label>
+    <label>Contraseña<input name="p" type="password" autocomplete="current-password" required></label>
+    <p class="err" id="lerr" role="alert"></p>
+    <button class="btn" type="submit">Ingresar</button>
+    <a href="index.html" class="hint">Volver a la tienda</a>
+  </form>
+</section>
+
+<div id="panel" hidden>
+  <header class="bar">
+    <b>Negro Mate admin</b>
+    <nav class="tabs" id="tabs">
+      <button data-t="orders" class="on">Pedidos</button>
+      <button data-t="products">Productos</button>
+      <button data-t="stock">Stock</button>
+    </nav>
+    <div class="out"><a href="index.html">Ver tienda</a><button class="btn ghost sm" id="logout">Salir</button></div>
+  </header>
+  <main id="view"></main>
+</div>
+
+<dialog id="dlg"><div id="dbody"></div></dialog>
+<script src="data.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
