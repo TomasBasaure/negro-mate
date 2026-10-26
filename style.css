@@ -7,7 +7,8 @@ button,input,textarea{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--red);outline-offset:2px}
 .ship{background:var(--ink);color:var(--paper);text-align:center;font-size:.85rem;padding:.4rem 1rem}
 .top{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:2rem;padding:.8rem clamp(1rem,4vw,3rem);background:var(--bg);border-bottom:1px solid var(--line)}
-.brand{font:900 1.5rem/1 var(--d);text-decoration:none;letter-spacing:.02em;text-transform:uppercase}
+.brand{display:inline-flex;align-items:center;gap:.6rem;font:900 1.5rem/1 var(--d);text-decoration:none;letter-spacing:.02em;text-transform:uppercase}
+.brand img{display:block;width:36px;height:36px}
 .top nav{display:flex;gap:1.5rem;margin-left:auto}
 .top nav a{text-decoration:none;font-weight:500}
 .top nav a:hover{text-decoration:underline;text-underline-offset:4px}
