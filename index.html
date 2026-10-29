@@ -8,8 +8,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="img/logo-icono.svg">
 <link rel="icon" type="image/png" href="img/logoicono.png">
-<link rel="stylesheet" href="style.css">
+<script>
+// aplico el tema antes de pintar para que no parpadee
+(function () {
+  var t = null;
+  try { t = JSON.parse(localStorage.getItem('nm_theme')); } catch (e) {}
+  if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  document.documentElement.dataset.theme = t;
+})();
+</script>
+<link rel="stylesheet" href="style1.css">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -22,41 +32,71 @@
 <div class="ship">Envío gratis desde $60.000</div>
 
 <header class="top">
-  <a class="brand" href="#inicio"><img src="img/logoicono.png" alt="" width="36" height="36"><span>Negro Mate</span></a>
+  <a class="brand" href="#inicio" aria-label="Negro Mate, inicio">
+    <img class="lg-l" src="img/logo-negromate.svg" alt="" height="40">
+    <img class="lg-d" src="img/logo-negromate-claro.svg" alt="" height="40">
+    <img class="tg-l" src="img/logo-tag.svg" alt="" height="40">
+    <img class="tg-d" src="img/logo-tag-claro.svg" alt="" height="40">
+  </a>
   <nav>
     <a href="#productos">Productos</a>
+    <a href="#nosotros">Nosotros</a>
     <a href="#como-comprar">Cómo comprar</a>
     <a href="#contacto">Contacto</a>
   </nav>
+  <button class="cart-btn theme-btn" id="theme" type="button" aria-pressed="false" aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro">
+    <svg class="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="ic-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+  </button>
   <button class="cart-btn" id="open-cart">Carrito <b id="count">0</b></button>
 </header>
 
 <section class="hero" id="inicio">
   <h1>Negro<br>Mate</h1>
-  <div class="hero-side">
-    <p>Ropa urbana hecha en Santa Fe. Algodón grueso, cortes simples y un solo color que no se discute.</p>
-    <a class="btn" href="#productos">Ver prendas</a>
-  </div>
   <div class="tag hero-tag" aria-hidden="true">
     <b>Negro Mate</b>
     <span>Lavar del revés.<br>Secar a la sombra.<br>No planchar el estampado.</span>
+  </div>
+  <div class="hero-side">
+    <p>Tienda online de ropa urbana. Elegís por la web, Instagram o Facebook y te la llevamos en zona Santa Fe.</p>
+    <a class="btn" href="#productos">Ver prendas</a>
   </div>
 </section>
 
 <main id="productos">
   <div class="filters">
-    <div class="row" id="cats"></div>
-    <div class="row" id="sizes"></div>
-    <button class="link" id="clear" hidden>Limpiar filtros</button>
+    <div class="frow"><span class="lbl">Categoría</span><div class="row" id="cats"></div></div>
+    <div class="frow"><span class="lbl">Talle</span><div class="row" id="sizes"></div></div>
+    <div class="frow">
+      <span class="lbl">Ordenar</span>
+      <select id="sort" aria-label="Ordenar productos">
+        <option value="">Destacados</option>
+        <option value="asc">Precio: menor a mayor</option>
+        <option value="desc">Precio: mayor a menor</option>
+      </select>
+      <span class="found" id="found" role="status"></span>
+      <button class="link" id="clear" hidden>Limpiar filtros</button>
+    </div>
   </div>
   <div class="grid" id="grid"></div>
   <p class="empty" id="none" hidden>No hay prendas con esa combinación. Probá con otro talle o categoría.</p>
 </main>
 
+<section class="perks" aria-label="Envíos, cambios y pagos">
+  <div><h3>Envíos</h3><p>Gratis desde $60.000. Santa Fe capital en 24-48 hs, CABA y GBA en 3-7 días, interior en 5-10 días.</p></div>
+  <div><h3>Cambios</h3><p>Solo por defecto de fábrica, dentro de las 48 hs de recibido el pedido.</p></div>
+  <div><h3>Pagos</h3><p>Transferencia, Mercado Pago o efectivo en entregas en mano.</p></div>
+</section>
+
+<section class="story" id="nosotros">
+  <h2>Ropa para<br>todos los días</h2>
+  <p>Somos una tienda online, sin local a la calle. Compramos por mayor prendas básicas y las vendemos por la web, Instagram y Facebook. Coordinamos la entrega en mano en zona Santa Fe.</p>
+</section>
+
 <section class="info" id="como-comprar">
   <h2>Cómo comprar</h2>
   <ol>
-    <li><b>Elegí la prenda y el talle.</b> Si dudás con las medidas, escribinos antes.</li>
+    <li><b>Elegí la prenda y el talle</b> en la web o por Instagram y Facebook. Si dudás con las medidas, escribinos antes.</li>
     <li><b>Armá el carrito</b> y confirmá el pedido con tus datos.</li>
     <li><b>Te confirmamos por WhatsApp</b> el stock y el costo de envío a tu zona.</li>
     <li><b>Pagás</b> por transferencia, Mercado Pago o efectivo en entregas en mano.</li>
@@ -77,13 +117,24 @@
     </form>
     <div class="contact-data">
       <p><b>Lunes a viernes</b> 9 a 19 hs<br><b>Sábados</b> 9 a 13 hs</p>
-      <p>Santa Fe capital, Argentina</p>
+      <p>Tienda online. Entregas en zona Santa Fe.</p>
       <p>negromateindumentaria@gmail.com<br>@negromate.indumentaria</p>
     </div>
   </div>
 </section>
 
-<footer>Negro Mate es un proyecto demo de portafolio. Los pedidos y pagos no son reales. <a href="admin.html">Panel admin de prueba</a>.</footer>
+<footer>
+  <div class="foot">
+    <div><img class="flogo" src="img/logo-negromate-claro.svg" alt="Negro Mate" height="56"><p>Tienda online de ropa urbana.</p></div>
+    <nav aria-label="Pie de página">
+      <a href="#productos">Productos</a>
+      <a href="#como-comprar">Cómo comprar</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <p>@negromate.indumentaria<br>negromateindumentaria@gmail.com</p>
+  </div>
+  <p class="demo">Negro Mate es un proyecto demo de portafolio. Los pedidos y pagos no son reales. <a href="admin.html">Panel admin de prueba</a>.</p>
+</footer>
 
 <div class="scrim" id="scrim" hidden></div>
 <aside class="drawer" id="drawer" aria-label="Carrito" aria-hidden="true">
@@ -91,7 +142,8 @@
   <div class="drawer-body" id="items"></div>
   <div class="drawer-foot" id="foot" hidden>
     <p class="free" id="free"></p>
-    <p class="total"><span>Total</span><b id="total"></b></p>
+    <p class="total"><span>Subtotal</span><b id="total"></b></p>
+    <p class="free">Pagás por transferencia, Mercado Pago o efectivo en entregas en mano.</p>
     <button class="btn full" id="checkout">Finalizar compra</button>
   </div>
 </aside>
@@ -101,7 +153,7 @@
   <div id="dlg-body"></div>
 </dialog>
 
-<script src="data.js"></script>
-<script src="app.js"></script>
+<script src="data1.js"></script>
+<script src="app1.js"></script>
 </body>
 </html>

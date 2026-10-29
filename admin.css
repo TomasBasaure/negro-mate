@@ -15,7 +15,9 @@ h1,h2{font-family:var(--d);text-transform:uppercase;line-height:1}
 #login form{background:var(--paper);padding:2rem;width:min(380px,100%);display:grid;gap:1rem}
 #login h1{font-size:2.6rem}.hint{color:var(--mut);font-size:.85rem}.err{color:var(--red);font-weight:500}
 .bar{display:flex;align-items:center;gap:1.5rem;padding:.8rem clamp(1rem,3vw,2.5rem);border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:2;flex-wrap:wrap}
-.bar b{font:900 1.4rem/1 var(--d);text-transform:uppercase}
+.bar b{display:flex;align-items:center;gap:.6rem;font:900 1.4rem/1 var(--d);text-transform:uppercase}
+.bar b img{display:block;width:auto}
+.login-logo{display:block;width:auto;max-width:100%}
 .tabs{display:flex;gap:.3rem}.tabs button{background:none;border:0;padding:.35rem .8rem;cursor:pointer;font-weight:500}
 .tabs button.on{background:var(--ink);color:var(--paper)}
 .bar .out{margin-left:auto;display:flex;gap:1rem;align-items:center}.bar a{color:inherit}
@@ -42,4 +44,27 @@ dialog h2{font-size:2rem;margin-bottom:1rem}
 .acts{display:flex;gap:.6rem;justify-content:flex-end;margin-top:.5rem}
 .toast{position:fixed;left:50%;bottom:1.2rem;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:.6rem 1.2rem;z-index:20}
 .empty{padding:1.5rem;color:var(--mut)}
+
+/* modo oscuro */
+:root[data-theme=dark]{color-scheme:dark;--bg:#121314;--ink:#ecebe6;--paper:#1c1e20;--mut:#9a9da0;--line:#35383b;--red:#e5534b;--ok:#5fb877}
+[data-theme=dark] .btn:hover{background:#cfcdc8}
+[data-theme=dark] .s-pending{color:#e0b04a}
+[data-theme=dark] .s-confirmed,[data-theme=dark] .s-processing{color:#6db3e8}
+[data-theme=dark] .s-shipped{color:#a99af0}
+[data-theme=dark] .s-low{color:#f0a05a}
+
+/* logos claro/oscuro */
+.bar b img.dk,.login-logo.dk{display:none}
+[data-theme=dark] .bar b img.lt,[data-theme=dark] .login-logo.lt{display:none}
+[data-theme=dark] .bar b img.dk,[data-theme=dark] .login-logo.dk{display:block}
+
+/* botón de tema: luna en claro, sol en oscuro */
+.btn.theme-btn{display:grid;place-items:center;width:2.2rem;height:2.2rem;padding:0}
+.btn.ghost.theme-btn:hover{background:var(--ink);color:var(--bg)}
+.theme-btn svg{width:1.15rem;height:1.15rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.theme-btn .ic-sun{display:none}
+[data-theme=dark] .theme-btn .ic-sun{display:block}
+[data-theme=dark] .theme-btn .ic-moon{display:none}
+#login{position:relative}
+.login-theme{position:absolute;top:1rem;right:1rem}
 @media(max-width:600px){.two{grid-template-columns:1fr}}

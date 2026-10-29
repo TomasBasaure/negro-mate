@@ -6,12 +6,24 @@
 <meta name="robots" content="noindex">
 <title>Panel admin – Negro Mate</title>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="img/logo-icono.svg">
 <link rel="icon" type="image/png" href="img/logoicono.png">
+<script>
+// mismo tema que la tienda, aplicado antes de pintar
+(function () {
+  var t = null;
+  try { t = JSON.parse(localStorage.getItem('nm_theme')); } catch (e) {}
+  if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  document.documentElement.dataset.theme = t;
+})();
+</script>
 <link rel="stylesheet" href="admin.css">
 </head>
 <body>
 <section id="login">
   <form id="lf">
+    <img class="login-logo lt" src="img/logo-negromate.svg" alt="Negro Mate" height="44">
+    <img class="login-logo dk" src="img/logo-negromate-claro.svg" alt="Negro Mate" height="44">
     <h1>Panel admin</h1>
     <p class="hint">Demo de portafolio. Usuario <b>admin</b>, contraseña <b>demo1234</b>.</p>
     <label>Usuario<input name="u" autocomplete="username" required></label>
@@ -20,23 +32,32 @@
     <button class="btn" type="submit">Ingresar</button>
     <a href="index.html" class="hint">Volver a la tienda</a>
   </form>
+  <button class="btn ghost theme-btn login-theme" type="button" aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro">
+    <svg class="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="ic-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+  </button>
 </section>
 
 <div id="panel" hidden>
   <header class="bar">
-    <b>Negro Mate admin</b>
+    <b><img class="lt" src="img/logo-tag.svg" alt="" height="34"><img class="dk" src="img/logo-tag-claro.svg" alt="" height="34">Negro Mate admin</b>
     <nav class="tabs" id="tabs">
       <button data-t="orders" class="on">Pedidos</button>
       <button data-t="products">Productos</button>
       <button data-t="stock">Stock</button>
     </nav>
-    <div class="out"><a href="index.html">Ver tienda</a><button class="btn ghost sm" id="logout">Salir</button></div>
+    <div class="out"><a href="index.html">Ver tienda</a>
+      <button class="btn ghost theme-btn" type="button" aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro">
+        <svg class="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="ic-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button class="btn ghost sm" id="logout">Salir</button></div>
   </header>
   <main id="view"></main>
 </div>
 
 <dialog id="dlg"><div id="dbody"></div></dialog>
-<script src="data.js"></script>
+<script src="data1.js"></script>
 <script src="admin.js"></script>
 </body>
 </html>
